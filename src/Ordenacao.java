@@ -10,23 +10,24 @@ public class Ordenacao {
 		preencherVetor();
 	}
 	
+	public Ordenacao(int[] vetor) {
+		this.vetor = vetor.clone();
+		this.tamanho = vetor.length;
+	}
+
+
 	public void preencherVetor() {
 		Random valorAleatorio = new Random();
 		for(int i = 0; i < vetor.length; i++) {
 			vetor[i] = valorAleatorio.nextInt(10001);
 		}
 	}
-	
-    public void mostrarVetor() {
-        for (int i = 0; i < vetor.length; i++) {
-            System.out.println(i + " = " + vetor[i]);
-        }
-    }
     
     public int[] getVetor() {
     	return this.vetor;
     }
 		
+    // BUBBLESORT
 	public void bubbleSort() {
 		for(int i = 1; i < tamanho; i++) {
 			for(int j = 0; j < tamanho-1; j++) {
@@ -39,6 +40,7 @@ public class Ordenacao {
 		}
 	}
 	
+	// QUICKSORT
 	public void quickSort(int[] vetor, int lb, int ub) {
 		if (lb < ub) {
 			int localDoPivo = posicionarPivo(vetor, lb, ub);
@@ -75,8 +77,8 @@ public class Ordenacao {
 	    vetor[j] = temp;
 	}
 	
-	//MERGESORT
 	
+	//MERGESORT
 	public void mergeSort(int[] vetor, int aux[], int low, int high) {
 		
 		if(low >= high) {
